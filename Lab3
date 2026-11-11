@@ -1,0 +1,21 @@
+SELECT
+    p.*,
+    ep.date_and_time_start,
+    ep.date_and_time_end,
+    ep.tram_number,
+    ep.additional_information
+FROM paths p
+LEFT JOIN employment_paths ep
+    ON p.depot_number = ep.depot_number
+    AND p.path_number = ep.path_number;
+
+SELECT
+    p.*,
+    ep.date_and_time_start,
+    ep.date_and_time_end,
+    ep.tram_number,
+    ep.additional_information
+FROM paths p
+RIGHT JOIN employment_paths ep
+    ON p.depot_number = ep.depot_number
+    AND p.path_number = ep.path_number;
