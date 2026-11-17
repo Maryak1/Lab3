@@ -19,3 +19,12 @@ FROM paths p
 RIGHT JOIN employment_paths ep
     ON p.depot_number = ep.depot_number
     AND p.path_number = ep.path_number;
+	SELECT
+    ep.*,
+    p.depot_number AS registered_depot,
+    p.path_number AS registered_path
+FROM employment_paths ep
+LEFT JOIN paths p
+    ON ep.depot_number = p.depot_number
+    AND ep.path_number = p.path_number
+WHERE p.depot_number IS NULL;
